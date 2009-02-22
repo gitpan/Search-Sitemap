@@ -2,6 +2,9 @@
 abstract: 'Perl extension for managing Search Engine Sitemaps'
 author:
   - 'Jason Kohles, <email@jasonkohles.com>'
+build_requires:
+  Test::Mock::LWP::UserAgent: 0
+  Test::Most: 0
 distribution_type: module
 generated_by: 'Module::Install version 0.79'
 license: perl
@@ -31,4 +34,4 @@ requires:
   namespace::clean: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 2.03
+version: 2.04
