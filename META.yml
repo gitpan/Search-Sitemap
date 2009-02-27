@@ -20,6 +20,7 @@ no_index:
 requires:
   Carp: 0
   Class::Trigger: 0
+  DateTime: 0
   HTML::Entities: 0
   IO::File: 0
   IO::Zlib: 0
@@ -36,4 +37,4 @@ requires:
   namespace::clean: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 2.05
+version: 2.06
