@@ -29,5 +29,8 @@ t/Search-Sitemap-Ping.t
 t/Search-Sitemap-Types.t
 t/Search-Sitemap-URL.t
 t/Search-Sitemap.t
+t/sitemap-index.xml
+t/sitemap-index.xml.gz
+t/sitemap.xml
 xt/author/pod-coverage.t
 xt/author/pod.t
