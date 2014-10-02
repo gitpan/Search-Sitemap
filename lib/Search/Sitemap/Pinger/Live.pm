@@ -1,6 +1,8 @@
 package Search::Sitemap::Pinger::Live;
-use strict; use warnings;
-our $VERSION = '2.13';
+$Search::Sitemap::Pinger::Live::VERSION = '2.13_01';
+use 5.008003;
+use strict;
+use warnings;
 our $AUTHORITY = 'cpan:JASONK';
 use Moose;
 extends 'Search::Sitemap::Pinger';
@@ -43,7 +45,6 @@ L<http://webmaster.live.com/>
 
 Jason Kohles, E<lt>email@jasonkohles.comE<gt>
 
-L<http://www.jasonkohles.com/>
 
 =head1 COPYRIGHT AND LICENSE
 

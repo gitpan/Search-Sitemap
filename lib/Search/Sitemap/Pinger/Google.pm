@@ -1,6 +1,8 @@
 package Search::Sitemap::Pinger::Google;
-use strict; use warnings;
-our $VERSION = '2.13';
+$Search::Sitemap::Pinger::Google::VERSION = '2.13_01';
+use 5.008003;
+use strict;
+use warnings;
 our $AUTHORITY = 'cpan:JASONK';
 use Moose;
 extends 'Search::Sitemap::Pinger';
@@ -42,8 +44,6 @@ L<http://www.google.com/support/webmasters/bin/answer.py?answer=34609>
 =head1 AUTHOR
 
 Jason Kohles, E<lt>email@jasonkohles.comE<gt>
-
-L<http://www.jasonkohles.com/>
 
 =head1 COPYRIGHT AND LICENSE
 

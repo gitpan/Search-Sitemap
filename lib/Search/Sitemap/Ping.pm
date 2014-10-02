@@ -1,6 +1,8 @@
 package Search::Sitemap::Ping;
-use strict; use warnings;
-our $VERSION = '2.13';
+$Search::Sitemap::Ping::VERSION = '2.13_01';
+use 5.008003;
+use strict;
+use warnings;
 our $AUTHORITY = 'cpan:JASONK';
 use Moose;
 use Search::Sitemap::Pinger;
@@ -164,12 +166,6 @@ In case of an error, the error string will be provided as the status.
 
 =back
 
-=head1 MODULE HOME PAGE
-
-The home page of this module is
-L<http://www.jasonkohles.com/software/Search-Sitemap>.  This is where you
-can always find the latest version, development versions, and bug reports.  You
-will also find a link there to report bugs.
 
 =head1 SEE ALSO
 

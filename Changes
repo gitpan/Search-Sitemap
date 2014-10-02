@@ -1,6 +1,15 @@
-Revision history for Perl extension Search::Sitemap.
+Revision history for Perl module Search::Sitemap
 
-2.13
+2.13_01 2014-10-02 NEILB
+    - Class::MOP::load_class() now deprecated, and generating warnings.
+      RT#90909. Switched to Class::Load - patch from ZOFFIX++.
+    - Switched to Dist::Zilla. This fixes RT#54436 and RT#54435 -
+      undeclared dependencies.
+    - Removed links to home page for Search::Sitemap on Jason's web site,
+      as the pages are no longer there. RT#54002 from ASB++
+    - Reformatted this file as per CPAN::Changes::Spec
+
+2.13 2011-05-27 JASONK
     - Finally updated after a long hiatus (sorry about that)
     - Special thanks to Alex J. G. Burzynski, who wrote all the patches
       for the fixes in versions 2.11 and 2.12, and to Christopher J. Madsen,
@@ -8,13 +17,13 @@ Revision history for Perl extension Search::Sitemap.
       into a pull request to make it much easier for me to get the fixes
       applied.
 
-2.12
+2.12 not released
     - Fix wrong datetime formatting for strftime (%FT%T is not portable),
       reported by Andrew Scheller [github issue #1]
     - Fix [rt.cpan.org #57420] this time for sure, reported by Andrew Scheller
       [github issue #2]
 
-2.11
+2.11 not released
     - Fixed Moose warning about coercion [rt.cpan.org #60468]
       reported by stephen@enterity.com
     - Fixed SitemapLastMod coercion [rt.cpan.org #59038]
@@ -30,17 +39,17 @@ Revision history for Perl extension Search::Sitemap.
 
     All above were fixed by Alex J. G. Burzyński
 
-2.10
+2.10 2009-09-01 JASONK
     - Modified Search::Sitemap::Index to produce XML that works better in
       XML validators.  Patch provided by Marc Tobias Metten.
     - Fixed a bug where the wrong label was used for index files, also
       reported by Marc Tobias Metten in RT #49325
 
-2.09
+2.09 2009-08-31 JASONK
     - Don't use %T for strftime, since some platforms don't support it.
       Reported by Martin Thurn.
 
-2.08
+2.08 2009-06-11 JASONK
     - Don't make Search::Shapefile::Types immutable, it doesn't seem to work
       anyway.
     - Fix some MooseX::Types related warnings (and a bug) reported by
@@ -48,35 +57,35 @@ Revision history for Perl extension Search::Sitemap.
     - Cleaned up some of the type constraints, now that I better understand
       MooseX::Types.
 
-2.07
+2.07 2009-03-30 JASONK
     - Fixed bug that caused the sitemap to include empty tag for optional
       attributes when no value was specified, reported by Christopher J.
       Madsen. [rt.cpan.org #44660]
     - Corrected the clearer for changefreq, also reported by Christopher J.
       Madsen. [rt.cpan.org #44660]
 
-2.06
+2.06 2009-02-27 JASONK
     - Added another missing dependency.
 
-2.05
+2.05 2009-02-25 JASONK
     - Added some more missing dependencies to Makefile.PL, reported by
       Andreas Koenig. [rt.cpan.org #43593]
 
-2.04
+2.04 2009-02-22 JASONK
     - Added missing dependencies to Makefile.PL
 
-2.03
+2.03 2009-02-21 JASONK
     - Fixed a bug where last modified times specified with a negative
       timezone offset didn't work.  Reported by russelj9.
     - Fixed a problem with the last modified type constraint and coercion.
 
-2.02
+2.02 2009-02-21 JASONK
     - Minor updates to ShipIt process.
 
-2.01
+2.01 not released
     - Minor updates.
 
-2.00
+2.00 not released
     - Renamed from WWW::Google::SiteMap to Search::Sitemap, to better reflect
       that it can be used for search engines other than Google.
     - Corrected some README inaccuracies.
@@ -88,44 +97,44 @@ Revision history for Perl extension Search::Sitemap.
       HTTP::Response object.
     - Added support for Google's Mobile Sitemap extension.
 
-1.09
+1.09 2006-08-24 JASONK
     - Replaced %F with %Y-%m-%d in strftime calls, to correct a Solaris bug
       (since Solaris strftime doesn't know about %F).  Reproted by Fredrik
       Acosta.
     - Added more information to error messages when parsing an existing
       sitemap fails.  Reported by Vinko Vrsalovic Bolte.
 
-1.08
+1.08 2006-03-27 JASONK
     - Converted installer from ExtUtils::MakeMaker to Module::Install, which
       should make it easier to install for Windows users.
     - Fixed a uri-encoding problem in WWW::Google::SiteMap::URL, reported
       by Jeff Horn.
     - Added some additional test cases and cleaned up some test cases.
 
-1.07
+1.07 2006-02-12 JASONK
     - Added changes for 1.06 to Changes file, which were accidentally left
       out of the last release.
     - Fixed the WWW-Google-SiteMap-Robot.t test to skip testing if
       WWW::Mechanize is not installed, reported by Jan Kratochvil.
 
-1.06
+1.06 2006-02-01 JASONK
     - Correction to documentation for WWW::Google::SiteMap::Robot
       ($robot->start should be $robot->run), reported by Martin Kissner.
     - Adjusted WWW::Google::SiteMap::Robot to discard anchors from URLs,
       reported by Martin Kissner.
-   
-1.05
+
+1.05 not released
     - Removed an accidental prerequisite from WWW::Google::SiteMap::URL.  You
       can give it DateTime objects to set the lastmod option, but you don't
       have to, there are other ways to set it as well.
 
-1.04
+1.04 2005-12-15 JASONK
     - Fixed a documentation error in WWW::Google::SiteMap, and a problem with
       the XML headers generated for sitemap indexes, both reported by
       Michael Smith.
     - Use 'use vars' instead of 'our' for older versions of perl.
 
-1.03
+1.03 2005-11-28 JASONK
     - Removed some leftover debugging output from WWW::Google::SiteMap::Robot.
     - Fixed date generation to deal with strangeness in the dates that Google
       will accept.  Note that this means some date/time strings that were
@@ -133,17 +142,17 @@ Revision history for Perl extension Search::Sitemap.
       details of the acceptable values to lastmod().
     - Added some more tests.
 
-1.02
+1.02 2005-11-26 JASONK
     - Fix a problem caused by the switch to XML::Twig, which was leaving off
       some of the XML header information.  Reported by Olaf Anders.
     - Fixed a bug with WWW::Google::SiteMap::Robot, which forgot to load the
       WWW::Google::SiteMap::Ping module before trying to send pings.
- 
-1.01
+
+1.01 2005-11-25 JASONK
     - Accidentally forgot to include the new WWW::Google::SiteMap::Robot
       class, which helps build sitemaps by spidering your web site.
 
-1.00
+1.00 2005-11-25 JASONK
     - Version 1.00 Released!
     - Fixed Zlib detection problem reported by Lance Cleveland.
     - Check to make sure that the sitemap file was opened correctly, rather
@@ -155,16 +164,16 @@ Revision history for Perl extension Search::Sitemap.
       Frank Naude.
     - Fixed a bug in the ISO-8601 time format checking.
 
-0.03
+0.03 2005-07-12 JASONK
     - Changed from XML::Simple to XML::Twig for XML parsing/generating, this
       means you can now validate your sitemaps with an XML validator.
     - Fixed some documentation errors, spotted by Ing. Branislav Gerzo
 
-0.02
+0.02 2005-06-03 JASONK
     - Renamed from Google::SiteMap to WWW::Google::SiteMap, shouldn't have
       created a new top-level namespace in the first place.
 
-0.01
+0.01 not released
 	- original version; created by h2xs 1.23 with options
 		-X Google::SiteMap
 

@@ -1,6 +1,8 @@
 package Search::Sitemap;
-use strict; use warnings;
-our $VERSION = '2.13';
+$Search::Sitemap::VERSION = '2.13_01';
+use 5.008003;
+use strict;
+use warnings;
 our $AUTHORITY = 'cpan:JASONK';
 use Moose;
 use Search::Sitemap::Types qw(
@@ -13,6 +15,7 @@ use XML::Twig;
 use IO::File;
 use Carp qw( carp croak );
 use HTML::Entities qw( decode_entities );
+use Class::Load;
 use namespace::clean -except => 'meta';
 
 has 'urls'  => (
@@ -20,7 +23,7 @@ has 'urls'  => (
     isa     => SitemapUrlStore,
     coerce  => 1,
     default => sub {
-        Class::MOP::load_class( 'Search::Sitemap::URLStore::Memory' );
+        Class::Load::load_class( 'Search::Sitemap::URLStore::Memory' );
         return Search::Sitemap::URLStore::Memory->new;
     },
     handles => {
@@ -79,7 +82,7 @@ has 'have_zlib' => (
     lazy    => 1,
     default => sub {
         local $@;
-        eval { Class::MOP::load_class( 'IO::Zlib' ) };
+        eval { Class::Load::load_class( 'IO::Zlib' ) };
         return $@ ? 0 : 1;
     },
 );
@@ -383,13 +386,6 @@ false value means 'none'.
 Returns the value it was set to, or the current value if called with no
 arguments.
 
-=head1 MODULE HOME PAGE
-
-The home page of this module is
-L<http://www.jasonkohles.com/software/search-sitemap>.  This is where you can
-always find the latest version, development versions, and bug reports.  You
-will also find a link there to report bugs.
- 
 =head1 ACKNOWLEDGEMENTS
 
 Thanks to Alex J. G. Burzyński for help with maintaining this module.
@@ -401,8 +397,6 @@ L<Search::Sitemap::Index>
 L<Search::Sitemap::Ping>
 
 L<Search::Sitemap::Robot>
-
-L<http://www.jasonkohles.com/software/search-sitemap>
 
 L<http://www.sitemaps.org/>
 

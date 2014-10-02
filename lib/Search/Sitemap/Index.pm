@@ -1,6 +1,8 @@
 package Search::Sitemap::Index;
-use strict; use warnings;
-our $VERSION = '2.13';
+$Search::Sitemap::Index::VERSION = '2.13_01';
+use 5.008003;
+use strict;
+use warnings;
 our $AUTHORITY = 'cpan:JASONK';
 use Moose;
 extends 'Search::Sitemap';
@@ -51,20 +53,12 @@ more than one of them.
 
 L<Search::Sitemap::Index> inherits all the methods found in L<Search::Sitemap>.
 
-=head1 MODULE HOME PAGE
-
-The home page of this module is
-L<http://www.jasonkohles.com/software/Search-Sitemap>.  This is where you can
-always find the latest version, development versions, and bug reports.  You
-will also find a link there to report bugs.
 
 =head1 SEE ALSO
 
 L<Search::Sitemap>
 
 L<Search::Sitemap::Ping>
-
-L<http://www.jasonkohles.com/software/Search-Sitemap>
 
 L<http://www.sitemaps.org/>
 

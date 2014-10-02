@@ -1,6 +1,8 @@
 package Search::Sitemap::URL;
-use strict; use warnings;
-our $VERSION = '2.13';
+$Search::Sitemap::URL::VERSION = '2.13_01';
+use 5.008003;
+use strict;
+use warnings;
 our $AUTHORITY = 'cpan:JASONK';
 use Moose;
 use MooseX::ClassAttribute;
@@ -218,12 +220,6 @@ Returns this URL and it's associated data as an L<XML::Twig::Elt> object.
 This is primarily an internal use method, you probably don't need to mess
 with it.
 
-=head1 MODULE HOME PAGE
-
-The home page of this module is
-L<http://www.jasonkohles.com/software/search-sitemap>.  This is where you
-can always find the latest version, development versions, and bug reports.  You
-will also find a link there to report bugs.
 
 =head1 SEE ALSO
 
@@ -232,8 +228,6 @@ L<Search::Sitemap>
 L<Search::Sitemap::Index>
 
 L<Search::Sitemap::Ping>
-
-L<http://www.jasonkohles.com/software/search-sitemap/>
 
 L<http://www.sitemaps.org/>
 

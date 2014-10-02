@@ -1,6 +1,8 @@
 package Search::Sitemap::URLStore::Memory;
-use strict; use warnings;
-our $VERSION = '2.13';
+$Search::Sitemap::URLStore::Memory::VERSION = '2.13_01';
+use 5.008003;
+use strict;
+use warnings;
 our $AUTHORITY = 'cpan:JASONK';
 use Moose;
 extends 'Search::Sitemap::URLStore';

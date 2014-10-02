@@ -1,7 +1,11 @@
 package Search::Sitemap::Types;
-use strict; use warnings;
-our $VERSION = '2.13';
+$Search::Sitemap::Types::VERSION = '2.13_01';
+use 5.008003;
+use strict;
+use warnings;
 our $AUTHORITY = 'cpan:JASONK';
+
+use Class::Load;
 use MooseX::Types -declare => [qw(
     SitemapURL SitemapUrlStore SitemapChangeFreq SitemapLastMod SitemapPriority
     XMLPrettyPrintValue XMLTwig SitemapPinger
@@ -15,11 +19,11 @@ subtype SitemapURL, as 'Search::Sitemap::URL';
 
 coerce SitemapURL,
     from HashRef, via {
-        Class::MOP::load_class( 'Search::Sitemap::URL' );
+        Class::Load::load_class( 'Search::Sitemap::URL' );
         Search::Sitemap::URL->new( $_ );
     },
     from Str, via {
-        Class::MOP::load_class( 'Search::Sitemap::URL' );
+        Class::Load::load_class( 'Search::Sitemap::URL' );
         Search::Sitemap::URL->new( loc => $_ );
     };
 
@@ -128,12 +132,12 @@ coerce SitemapUrlStore,
         my $class = $type =~ /::/
             ? $type
             : 'Search::Sitemap::URLStore::'.$type;
-        Class::MOP::load_class( $class );
+        Class::Load::load_class( $class );
         $class->new( $_ )
     },
     from Str, via {
         my $class = 'Search::Sitemap::URLStore::'.$_;
-        Class::MOP::load_class( $class );
+        Class::Load::load_class( $class );
         return $class->new;
     };
 
@@ -144,7 +148,7 @@ class_type( 'Search::Sitemap::Pinger' );
 subtype SitemapPinger, as 'Search::Sitemap::Pinger';
 coerce SitemapPinger, from Str, via {
     my $class = 'Search::Sitemap::Pinger::'.$_;
-    Class::MOP::load_class( $class );
+    Class::Load::load_class( $class );
     return $class->new;
 };
 
